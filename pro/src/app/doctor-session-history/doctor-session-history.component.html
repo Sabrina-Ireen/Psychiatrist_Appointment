@@ -1,0 +1,29 @@
+<div class="min-h-screen bg-[#FFF6F1] flex justify-center px-4 py-6">
+  <div class="w-full max-w-2xl space-y-8">
+
+    <h1 class="text-3xl font-bold text-gray-900 text-center mb-6">Session History</h1>
+
+    <div *ngFor="let s of sessions" class="relative pl-12">
+      <!-- Vertical line -->
+      <div class="absolute left-5 top-0 h-full border-l-2 border-[#FF7D54]"></div>
+
+      <!-- Dot -->
+      <div class="absolute left-0 top-1 w-4 h-4 bg-[#FF7D54] rounded-full"></div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 space-y-2">
+        <div class="flex justify-between items-center mb-2">
+          <h3 class="font-semibold text-gray-800">{{ s.patientName }}</h3>
+          <span class="text-sm text-gray-500">{{ s.appointmentDate | date:'mediumDate' }}</span>
+        </div>
+        <p class="text-gray-600"><strong>Time:</strong> {{ s.slotTime }}</p>
+        <p class="text-gray-600"><strong>Diagnosis:</strong> {{ s.diagnosis || '—' }}</p>
+        <p class="text-gray-600"><strong>Medicines:</strong> {{ s.medicines || '—' }}</p>
+        <p class="text-gray-600"><strong>Notes:</strong> {{ s.notes || '—' }}</p>
+        <a *ngIf="s.sessionLink" [href]="s.sessionLink" target="_blank"
+           class="mt-2 inline-block text-[#FF7D54] font-semibold hover:underline">
+          Join Session
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

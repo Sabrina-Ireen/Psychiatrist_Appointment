@@ -1,0 +1,6 @@
+@PsychiatristAppointment_HostAddress = http://localhost:5120
+
+GET {{PsychiatristAppointment_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
